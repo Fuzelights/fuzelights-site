@@ -1,0 +1,104 @@
+/* Fuzelights — shared styles */
+:root{
+  --bg:#000; --band:#0c0c0c; --panel:#333; --text:#f2f2f2; --muted:#b5b5b5;
+  --line:#242424; --card:#111;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;line-height:1.55}
+a{color:inherit}
+img,video{display:block;max-width:100%;height:auto}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{background:rgba(0,0,0,.92);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;backdrop-filter:blur(6px)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 20px;max-width:1140px;margin:0 auto;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:22px;letter-spacing:.3px}
+.brand img{width:30px;height:30px;border-radius:50%}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-size:15px;padding:4px 0;border-bottom:1px solid transparent}
+nav a:hover{color:var(--text)}
+nav a[aria-current="page"]{color:var(--text);border-bottom-color:var(--text)}
+
+/* home banner */
+.banner{position:relative;min-height:62vh;display:flex;align-items:flex-end;overflow:hidden;background:#000}
+.banner img{position:absolute;inset:0;width:100%;height:100% !important;object-fit:cover;opacity:.72}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 30%,rgba(0,0,0,.9))}
+.banner .wrap{position:relative;z-index:1;width:100%;padding-bottom:48px}
+.banner h1{font-weight:300;font-size:clamp(44px,7vw,76px);margin:0 0 10px;letter-spacing:-.5px}
+.banner p{margin:0;font-size:18px;color:#e6e6e6;max-width:34em}
+
+.intro{background:var(--band);padding:44px 0}
+.intro p{margin:0 auto 10px;max-width:46em;font-size:17px;color:#e2e2e2;text-align:center}
+
+/* page heading */
+.pagehead{background:var(--band);padding:52px 0 40px;border-bottom:1px solid var(--line)}
+.pagehead h1{font-weight:300;font-size:clamp(36px,5vw,54px);margin:0 0 14px}
+.pagehead p{margin:0 0 10px;max-width:44em;color:#e0e0e0;font-size:17px}
+.pagehead .feature{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.pagehead .feature img,.pagehead .feature video{width:100%;max-height:72vh;object-fit:cover;border-radius:2px}
+
+h2{font-weight:300;font-size:32px;text-align:center;margin:0 0 28px}
+section.block{padding:56px 0}
+
+/* collections */
+.collections{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.collections .card{grid-column:span 2}
+.collections .card:nth-child(4),.collections .card:nth-child(5){grid-column:span 3}
+.card{position:relative;display:block;text-decoration:none;overflow:hidden;background:var(--card)}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .5s ease,opacity .3s}
+.card:hover img{transform:scale(1.04);opacity:.9}
+.card .label{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.88))}
+.card .label strong{display:block;font-size:22px;font-weight:400}
+.card .label span{font-size:14px;color:var(--muted)}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px 14px}
+.item{margin:0;background:transparent}
+.item button.zoom{all:unset;cursor:zoom-in;display:block;width:100%;overflow:hidden;background:var(--card)}
+.item img,.item video{width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .5s ease}
+.item.wide img,.item.wide video{aspect-ratio:4/3}
+.item button.zoom:hover img{transform:scale(1.03)}
+.item figcaption{padding:10px 2px 0}
+.item figcaption strong{display:block;font-weight:400;font-size:17px}
+.item figcaption span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.item .links{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:14px}
+.item .links a{color:#fff;text-decoration:none;border-bottom:1px solid #777}
+.item .links a:hover{border-bottom-color:#fff}
+
+.note{color:var(--muted);font-size:14px;text-align:center;margin-top:34px}
+.note a{color:#ddd}
+
+/* details & specs */
+details.more{margin-top:8px;font-size:14px;color:#ddd}
+details.more summary{cursor:pointer;color:#fff;list-style:none;display:inline-block;border-bottom:1px solid #777}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:" +";color:var(--muted)}
+details.more[open] summary::after{content:" \2212"}
+details.more p{margin:10px 0 0;color:#d6d6d6}
+table.specs{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}
+table.specs th,table.specs td{text-align:left;vertical-align:top;padding:6px 0;border-top:1px solid var(--line)}
+table.specs th{width:38%;font-weight:400;color:var(--muted);padding-right:10px}
+
+/* contact */
+.contact{background:var(--panel);padding:52px 0;text-align:center}
+.contact p{color:#ddd;margin:0 auto 22px;max-width:36em}
+.btn{display:inline-block;padding:12px 26px;border:1px solid #fff;color:#fff;text-decoration:none;font-size:16px}
+.btn:hover{background:#fff;color:#000}
+
+footer{padding:26px 0;text-align:center;color:var(--muted);font-size:14px}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;z-index:50;padding:24px;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:100%;max-height:88vh;object-fit:contain}
+.lightbox .cap{position:absolute;left:0;right:0;bottom:14px;text-align:center;color:#ddd;font-size:15px;padding:0 20px}
+.lightbox .x{position:absolute;top:12px;right:18px;font-size:34px;color:#fff;background:none;border:0;cursor:pointer;line-height:1}
+
+@media (max-width:760px){
+  .pagehead .feature{grid-template-columns:1fr;gap:24px}
+  .collections{grid-template-columns:1fr}
+  .collections .card,.collections .card:nth-child(4),.collections .card:nth-child(5){grid-column:auto}
+  nav{gap:14px}
+  .banner{min-height:52vh}
+}
